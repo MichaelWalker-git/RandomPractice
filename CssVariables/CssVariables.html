@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<div class="controls">
+  <label for="spacing">Spacing:</label>
+  <input type="range"
+         id="spacing"
+         min="10"
+         max="200"
+         value="10"
+         data-sizing="10px"
+  />
+  <label for="base">Base Color</label>
+  <input type="color"
+         id="base"
+         value="#ffc600"
+  />
+</div>
+<img src="http://unsplash.it/800/500?image=899"/>
+<style>
+  :root {
+    --base: #ffc600;
+    --spacing: 10px;
+    --blur: 10px;
+  }
+
+  img {
+    padding: var(--spacing);
+    background: var(--base);
+  }
+
+  body {
+    text-align: center;
+  }
+
+  body {
+    background: #193549;
+    color: white;
+    font-family: 'helvetica neue', sans-serif;
+    font-weight: 100;
+    font-size: 50px;
+  }
+
+  .controls {
+    margin-bottom: 50px;
+  }
+
+</style>
+</body>
+</html>
