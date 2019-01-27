@@ -19,7 +19,7 @@
          value="#ffc600"
   />
 </div>
-<img src="http://unsplash.it/800/500?image=899"/>
+<img src="https://media-cdn.tripadvisor.com/media/photo-s/0e/9a/e3/1d/freedom-tower.jpg">
 <style>
   :root {
     --base: #ffc600;
@@ -30,6 +30,11 @@
   img {
     padding: var(--spacing);
     background: var(--base);
+    filter: blur(--blur);
+  }
+
+  .hl {
+    color: var(--base);
   }
 
   body {
@@ -50,4 +55,16 @@
 
 </style>
 </body>
+<script>
+  const inputs = document.querySelectorAll('.controls input');
+  function handleUpdate() {
+  	const suffix = this.dataset.sizing || '';
+   	document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+  	console.log(document.documentElement.style);
+  };
+
+  inputs.forEach(input => input.addEventListener('change', handleUpdate));
+	inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+
+</script>
 </html>
