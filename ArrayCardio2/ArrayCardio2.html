@@ -30,6 +30,7 @@ const comments = [
 const today = new Date();
 const currentYear = today.getFullYear();
 const testIfPersonIsOver18 = (person) => (currentYear - person.year) > 18;
+console.log("Everybody's age: ", people.map(person => currentYear - person.year ));
 
 const NineTeenOlderOne = people.some(testIfPersonIsOver18);
 console.log('Is at least one person 19 or older? ', NineTeenOlderOne);
@@ -54,7 +55,8 @@ console.log('find the comment with the ID of 823423: ', Comment823423);
 // Array.prototype.findIndex()
 // Find the comment with this ID
 const idx = comments.findIndex((com) => com.id === 823423);
-console.log("findIndex: ", comments.slice().splice(idx, 1));
+comments.splice(idx, 1);
+console.log("findIndex: ", comments);
 // delete the comment with the ID of 823423
 
 </script>
