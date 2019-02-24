@@ -49,3 +49,23 @@ sum in the first I elements is either the maximum sum in the first i - 1 element
 
 MaxEndingHere is either A[i] plus the previous MaxEndingHere, or just A[i], whichever is larger.
 
+
+Alternate:
+
+```
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function(nums) {
+    var max = nums[0]
+    var cur = 0
+    for(var i = 0; i < nums.length; i++){
+        cur += nums[i]
+        if(cur < 0 || cur < nums[i]) cur = nums[i]
+        max = Math.max(cur, max)
+    }
+    return max
+};
+```
