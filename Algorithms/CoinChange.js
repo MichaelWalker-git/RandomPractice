@@ -1,28 +1,31 @@
+
 /**
  * @param {number[]} coins
  * @param {number} amount
  * @return {number}
  */
 const coinChange = function (coins, amount) {
-	let result = [];
-	const remove = (coin, amount, stack = []) => {
-		const newRem = amount - coin;
-		if (newRem >= 0 && coin > 0) {
-			stack.push(coin);
-			return remove(coin, newRem, stack);
-		} else {
-			return {stack, remainingAmount: amount};
+	const changes = [];
+	changes[0] = 0;
+
+	// changes[] means the anwser for different amount, so ret = changes[amount]
+	while(changes.length <= amount){
+		let c = Math.pow(2, 31) - 1;
+		for (let i = 0; i < coins.length; i++) {
+			if (changes.length - coins[i] < 0)
+				continue;
+			c = Math.min(c, 1 + changes[changes.length - coins[i]]);
 		}
-	};
-	for (let i = coins.length - 1; i >= 0; i--) {
-		const {stack, remainingAmount} = remove(coins[i], amount, result);
-		result = [...stack];
-		amount = remainingAmount;
+		changes.push(c);
 	}
-	return amount === 0 ? result.length : -1;
+
+	return changes[amount] === Math.pow(2, 31) - 1 ? -1 : changes[amount];
 };
+
+
 
 // console.log(coinChange([1,2,5], 11));
 // console.log(coinChange([1,2,5,11], 11));
 // console.log(coinChange([2, 3 , 5], 11));
-console.log(coinChange([12], 11));
+console.log(coinChange([186,419,83,408], 6249));
+// console.log(coinChange([12], 11));
