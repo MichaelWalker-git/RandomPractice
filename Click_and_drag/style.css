@@ -1,7 +1,7 @@
 html {
-    box-sizing: border-box;
     background: url('https://source.unsplash.com/NFs6dRTBgaM/2000x2000') fixed;
     background-size: cover;
+    box-sizing: border-box;
 }
 
 *, *:before, *:after {
@@ -9,32 +9,32 @@ html {
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
     font-family: sans-serif;
     font-size: 20px;
+    justify-content: center;
     margin: 0;
+    min-height: 100vh;
 }
 
 .items {
-    height: 800px;
-    padding: 100px;
-    width: 100%;
+    background: rgba(255,255,255,0.1);
     border: 1px solid white;
+    cursor: pointer;
+    height: 800px;
+    font-size: 0;
+    width: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
-    white-space: nowrap;
-    user-select: none;
-    cursor: pointer;
+    padding: 100px;
+    position: relative;
+    perspective: 500px;
     transition: all 0.2s;
     transform: scale(0.98);
+    user-select: none;
     will-change: transform;
-    position: relative;
-    background: rgba(255,255,255,0.1);
-    font-size: 0;
-    perspective: 500px;
+    white-space: nowrap;
 }
 
 .items.active {
