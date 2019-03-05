@@ -110,6 +110,20 @@
 	const itemsList = document.querySelector('.plates');
 	const items = [];
 
+	/**
+   * Adds item to queue.
+   * @param {!Event} e
+	 */
+	function addItem (e) {
+		e.preventDefault();
+		const text = (this.querySelector('[name=item')).value;
+		const item = {
+			done: false,
+			text
+		}
+  }
+
+	addItems.addEventListener('submit', addItem)
 </script>
 
 
