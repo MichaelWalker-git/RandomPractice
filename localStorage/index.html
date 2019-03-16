@@ -127,6 +127,9 @@
 		this.reset();
   }
 
+  /**
+   *
+   */
   function populateList (plates = [], platesList ) {
     platesList.innerHTML = plates.map((plate, idx)  => {
     	// language=HTML
@@ -135,19 +138,25 @@
         <input type="checkbox" data-index=${idx} id="item${idx}" ${plate.done ? 'checked' : ''}>
     	  <label for="item${idx}">${plate.text}</label>
     	</li>
-    	`
+    	`;
     }).join('');
   }
 
+	/**
+   *
+	 * @param {!Event} e
+	 */
   function toggleDone(e) {
-		if(!event.target.matches('input')) return;
-		const idx = e.target.dataset.index;
+		if (!e.target.matches('input')) return; // skip this unless it's an input
+		const el = e.target;
+		const idx = el.dataset.index;
 		items[idx].done = !items[idx].done;
+		localStorage.setItem('items', JSON.stringify(items));
     populateList(items, itemsList);
   }
 
 	addItems.addEventListener('submit', addItem);
-	addItems.addEventListener('click', toggleDone);
+	itemsList.addEventListener('click', toggleDone);
 
   populateList(items, itemsList);
 
