@@ -38,11 +38,13 @@
 	// or use the new ES6 Spread
   const esCopy = [...players];
 
+  const arrayFrom = Array.from(players);
+
 	// now when we update it, the original one isn't changed
 
 	// The same thing goes for objects, let's say we have a person object
 
-    console.log(oneWay, concatMethod, esCopy, )
+    console.log(oneWay, concatMethod, esCopy, );
 	// with Objects
 	const person = {
 		name: 'Wes Bos',
@@ -58,6 +60,9 @@
   const newWay = {...person};
 	// Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
   console.log(oldWay, newWay)
+
+  // deep clone
+  // -- poor man -- JSON.parse(JSON.stringify(..))
 </script>
 
 </body>
